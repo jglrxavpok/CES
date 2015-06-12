@@ -1468,12 +1468,11 @@ void opADC(CPU* cpu, RAM* ram, uint16_t srcAddr) {
 }
 
 void push(CPU* cpu, uint8_t val) {
-    cpu->stack[cpu->sp] = val;
+    cpu->stack[cpu->sp++] = val;
 }
 
 uint8_t pop(CPU* cpu) {
-    uint8_t val = cpu->stack[cpu->sp-1];
-    cpu->sp--;
+    uint8_t val = cpu->stack[cpu->sp--];
     return val;
 }
 
